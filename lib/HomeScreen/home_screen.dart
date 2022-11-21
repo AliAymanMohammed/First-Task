@@ -21,7 +21,24 @@ class HomeScreen extends StatelessWidget {
         final cubitListener = MainCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title: const Text('First Task'),
+            title: const Text(
+              'طلبات الاجازه الخاصه بي',
+              style: TextStyle(fontWeight: FontWeight.w900),
+            ),
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: primaryColor,
+                  ))
+            ],
+            leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.menu,
+                  color: primaryColor,
+                )),
             backgroundColor: appBarColor,
             centerTitle: true,
           ),
@@ -36,13 +53,13 @@ class HomeScreen extends StatelessWidget {
                         itemBuilder: (context, index) => Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: SizedBox(
-                            height: 150,
+                            height: 170,
                             child: MyCard(
                               authorName: cubitListener
                                       .dummyNewsList!.data![index].author ??
                                   'No Author',
                               sourceName: cubitListener.dummyNewsList!
-                                      .data![index]!.source!.name ??
+                                      .data![index].source!.name ??
                                   'No Name',
                             ),
                           ),
@@ -56,7 +73,6 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          drawer: Drawer(),
         );
       },
     );

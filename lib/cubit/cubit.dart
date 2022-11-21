@@ -14,6 +14,13 @@ class MainCubit extends Cubit<MainCubitStates> {
     return BlocProvider.of(context);
   }
 
+  var isOpened = false;
+
+  void toggleDrawer() {
+    isOpened = !isOpened;
+    emit(DrawerState());
+  }
+
   DummyNewsList? dummyNewsList;
   void getDummyList() {
     emit(DummyListLoadingState());

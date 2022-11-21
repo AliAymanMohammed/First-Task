@@ -17,64 +17,116 @@ class MyCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
+            Column(
               children: [
-                Text(
-                  'Sick leave',
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-                const Spacer(),
-                SizedBox(
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
                   child: Row(
                     children: [
-                      Text(
-                        authorName.length > 20 ? 'Too long' : authorName,
-                        maxLines: 1,
-                        overflow: TextOverflow.visible,
-                        style: TextStyle(
-                          color: primaryColor,
-                          fontSize:
-                              Theme.of(context).textTheme.bodyText1!.fontSize,
+                      SizedBox(
+                        child: Row(
+                          children: [
+                            Text(
+                              authorName.length > 20 ? 'Too long' : authorName,
+                              maxLines: 1,
+                              overflow: TextOverflow.visible,
+                              style: TextStyle(
+                                color: primaryColor,
+                                fontSize: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .fontSize,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Container(
+                              height: 30,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: const Icon(
+                                Icons.visibility,
+                                size: 14,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        width: 2,
+                      const Spacer(),
+                      Text(
+                        'اجازة مرضية',
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
-                      Icon(
-                        Icons.visibility,
-                        size: 14,
-                        color: primaryColor,
-                      )
                     ],
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20, right: 30),
+                  child: Divider(
+                    color: Colors.grey,
+                    thickness: 0.5,
                   ),
                 ),
               ],
             ),
-            const Divider(),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Start Date",
+                      " : تاريخ انتهاء الاجازة",
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    Text('21/11/2022'),
-                    Text("Total Days"),
-                    Text(sourceName),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      '18 Nov 2022',
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    Text(
+                      ":السبب",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    Text(
+                      "test vacation",
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ],
                 ),
-                const Spacer(),
+                const SizedBox(
+                  width: 110,
+                ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text("End Date :"),
-                    Text('22/11/2022'),
-                    Text("Reason :"),
-                    Text("test"),
+                    Text(
+                      " : تاريخ بدء الاجازة",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      '16 Nov 2022',
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    Text(
+                      ": اجمالي عدد الايام ",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    Text(
+                      "2",
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ],
                 )
               ],
